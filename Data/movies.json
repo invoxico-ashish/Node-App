@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Die Hard",
+        "releaseYear": 2016,
+        "duration": 50
+    },
+    {
+        "id": 2,
+        "name": "Expandables",
+        "releaseYear": 2008,
+        "duration": 80
+    },
+    {
+        "id": 3,
+        "name": "Gravity",
+        "releaseYear": 2016,
+        "duration": 20
+    },
+    {
+        "id": 4,
+        "name": "Jhonny walker",
+        "releaseYear": 2023,
+        "duration": 50
+    },
+    {
+        "id": 5,
+        "name": "test",
+        "releaseYear": 2015,
+        "duration": 90
+    },
+    {
+        "id": 6,
+        "name": "testTwo",
+        "releaseYear": 2016,
+        "duration": 90
+    }
+]
