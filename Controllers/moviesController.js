@@ -28,12 +28,17 @@ exports.getSingleMovie = async function (req, res) {
 }
 exports.updateMovie = async function (req, res) {
     try {
-        const updatedMovies =await Movie.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true })
+        const updatedMovies = await Movie.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true })
         return res.status(200).json({ status: "success", data: { movie: updatedMovies } })
     } catch (error) {
         return res.status(400).json({ status: "failed", message: error.message })
     }
 }
-exports.deleteMovie = function (req, res) {
-
+exports.deleteMovie = async function (req, res) {
+    try {
+        await Movie.findByIdAndDelete(req.params.id);
+        return res.status(200).json({ status: "success", data: null })
+    } catch (error) {
+        return res.status(400).json({ status: "failed", message: error.message })
+    }
 }
