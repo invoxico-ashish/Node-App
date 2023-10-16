@@ -1,13 +1,7 @@
 const express = require("express");
 const moviesController = require("../Controllers/moviesController")
-
-
 const router = express.Router();
 
-router.param("id", (req, res, next, value) => {
-    console.log("movie id is" + value)
-    next();
-})
 
 
 //get api for movies;
