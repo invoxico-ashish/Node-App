@@ -3,8 +3,16 @@ const Movie = require("../Modals/movieModal")
 
 exports.getAllMovie = async function (req, res) {
     try {
-        const movies = await Movie.find();
-        return res.status(200).json({ status: "success", length: Movie.length, data: { movies } })
+        console.log(req.query);
+        let  qurstr = JSON.stringify(req.query);
+        qurstr.replace(/\b(gte|gt|lte|lt)\b/g, match => `$${match}`);
+        const queryObj = JSON.parse(qurstr);
+        console.log(queryObj)
+        const movies = await Movie.find(queryObj);
+        // return
+        //add + for convert string into number; { duration: +req.query.duration, rating: +req.query.rating }
+        // const movies = await Movie.find().where('duration').equals(req.query.duration).where("ratings").equals(req.query.ratings)
+        return res.status(200).json({ status: "success", length: movies.length, data: { movies } })
     } catch (error) {
         return res.status(400).json({ status: "failed", error })
     }
